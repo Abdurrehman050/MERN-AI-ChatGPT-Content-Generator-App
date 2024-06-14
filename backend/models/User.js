@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    trailPeriod: {
+      type: Number,
+      default: 3, // 3 days
+    },
     trailActive: {
       type: Boolean,
       default: true,
