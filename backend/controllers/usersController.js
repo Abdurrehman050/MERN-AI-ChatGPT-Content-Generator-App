@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/User");
 
@@ -57,7 +58,16 @@ const login = asyncHandler(async (req, res) => {
     throw new Error("Invalid email or password");
   }
   // Generate token (jwt)
+  const token = jwt.sign({ id: user?._id }, process.env.JWT_SECRET, {
+    expiresIn: "3d", //token expires in 3 days
+  });
   // set the token into cookie (http only)
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
+  });
 
   // send the response
   res.json({
