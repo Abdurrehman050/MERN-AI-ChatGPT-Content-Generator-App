@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema(
     },
     monthlyRequestCount: {
       type: Number,
-      default: 0,
+      default: 100, // 100 credit // 3 days
     },
     nextBillingDate: Date,
     payments: [
@@ -54,8 +54,15 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
+
+// add virtual property
+userSchema.virtual("isTrailActive").get(function () {
+  return this.trailActive && new Date() < this.trailExpires;
+});
 //! Compile to form the model
 const User = mongoose.model("User", userSchema);
 module.exports = User;
