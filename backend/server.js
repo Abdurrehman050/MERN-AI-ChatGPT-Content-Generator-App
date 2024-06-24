@@ -4,6 +4,7 @@ require("dotenv").config();
 const usersRouter = require("./routes/usersRouter");
 const { errorHandler } = require("./middlewares/errorMiddleware");
 const openAIRouter = require("./routes/openAIRouter");
+const stripeRouter = require("./routes/stripeRouter");
 require("./utils/connectDB")();
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cookieParser()); // pass the cookie automatically
 //----Routes-----
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/openai", openAIRouter);
+app.use("/api/v1/stripe", stripeRouter);
 
 //-----Error handler middleware
 app.use(errorHandler);

@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     trailExpires: {
       type: Date,
     },
-    subscription: {
+    subscriptionPlan: {
       type: String,
       enum: ["Trail", "Free", "Basic", "Premium"],
     },
