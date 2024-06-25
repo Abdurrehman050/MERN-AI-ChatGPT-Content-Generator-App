@@ -59,10 +59,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// add virtual property
-userSchema.virtual("isTrailActive").get(function () {
-  return this.trailActive && new Date() < this.trailExpires;
-});
 //! Compile to form the model
 const User = mongoose.model("User", userSchema);
 module.exports = User;

@@ -12,7 +12,7 @@ const checkApiRequestLimit = asyncHandler(async (req, res, next) => {
   }
   let requestLimit = 0;
   // check if user is on trail period
-  if (user?.isTrailActive) {
+  if (user?.trailActive) {
     requestLimit = user?.monthlyRequestCount;
   }
   // check if user has exceeded his monthly request or not
