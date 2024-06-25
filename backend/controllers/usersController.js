@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/User");
+const isAuthenticated = require("../middlewares/isAuthenticated");
 
 //------- Registration -------
 const register = asyncHandler(async (req, res) => {
@@ -100,10 +101,21 @@ const userProfile = asyncHandler(async (req, res) => {
   }
 });
 //------- Check user Auth Status -------
+const checkAuth = asyncHandler(async (req, res) => {
+  const decoded = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
+  if (decoded) {
+    res.json({
+      isAuthenticated: true,
+    });
+  } else {
+    isAuthenticated: false;
+  }
+});
 
 module.exports = {
   register,
   login,
   logout,
   userProfile,
+  checkAuth,
 };
