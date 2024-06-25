@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cron = require("node-cron");
+const cors = require("cors");
 require("dotenv").config();
 const usersRouter = require("./routes/usersRouter");
 const { errorHandler } = require("./middlewares/errorMiddleware");
@@ -94,7 +95,11 @@ cron.schedule("0 0 1 * * *", async () => {
 //-------middleware-----
 app.use(express.json()); // pass incoming json or payload
 app.use(cookieParser()); // pass the cookie automatically
-
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 //----Routes-----
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/openai", openAIRouter);
