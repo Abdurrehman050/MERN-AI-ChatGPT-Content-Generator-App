@@ -19,3 +19,22 @@ export const registerAPI = async (userData) => {
     throw new Error(error.response?.data?.message || "Registration failed");
   }
 };
+
+//========= Login API=============
+export const loginAPI = async (userData) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:8090/api/v1/users/login",
+      {
+        email: userData?.email,
+        password: userData?.password,
+      },
+      {
+        withCredentials: true,
+      }
+    );
+    return response?.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || "Registration failed");
+  }
+};
