@@ -35,6 +35,21 @@ export const loginAPI = async (userData) => {
     );
     return response?.data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || "Registration failed");
+    throw new Error(error.response?.data?.message || "Login failed");
+  }
+};
+
+//========= Check Auth API=============
+export const checkUserAuthStatusAPI = async (userData) => {
+  try {
+    const response = await axios.get(
+      "http://localhost:8090/api/v1/auth/check",
+      {
+        withCredentials: true,
+      }
+    );
+    return response?.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || "Authentication failed");
   }
 };
