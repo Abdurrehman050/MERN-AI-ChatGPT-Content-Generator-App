@@ -46,7 +46,9 @@ const Registration = () => {
       console.log("Form values", values);
       mutation.mutate(values);
       //simulate successful registration
-      //navigate("/login"); //Redirect user to login page
+      setTimeout(() => {
+        navigate("/login"); //Redirect user to login page
+      }, 3000);
     },
   });
   console.log(mutation.isSuccess);

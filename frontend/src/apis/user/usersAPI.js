@@ -53,3 +53,20 @@ export const checkUserAuthStatusAPI = async (userData) => {
     throw new Error(error.response?.data?.message || "Authentication failed");
   }
 };
+
+//======== logout==========
+
+export const logoutAPI = async () => {
+  try {
+    const response = await axios.post(
+      "http://localhost:8090/api/v1/users/logout",
+      {},
+      {
+        withCredentials: true,
+      }
+    );
+    return response?.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || "Authentication failed");
+  }
+};
