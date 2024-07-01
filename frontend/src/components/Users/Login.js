@@ -18,8 +18,15 @@ const validationSchema = Yup.object({
 const Login = () => {
   //custom auth hook
   const { isAuthenticated, login } = useAuth();
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
+
   const navigate = useNavigate();
+  // Redirect if a user is logged in
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated]);
   // mutation
   const mutation = useMutation({ mutationFn: loginAPI });
 
@@ -38,7 +45,7 @@ const Login = () => {
 
       setTimeout(() => {
         navigate("/dashboard");
-      }, 3000);
+      }, 5000);
     },
   });
   // update is authenticated
