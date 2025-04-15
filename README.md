@@ -1,7 +1,7 @@
 # MERN-AI-ChatGPT-Content-Generator-App
 A full-stack content generation web application built with the MERN stack and powered by OpenAI's GPT API. This project allows users to generate AI-based content like blog posts, emails, social media captions, and more—with support for user authentication, token-based usage, and subscription tiers.
 
-🚀 Features
+# 🚀 Features 
 💬 AI-Powered Content Generation using OpenAI's GPT-3.5/4 API
 
 🔐 User Authentication and account management
@@ -22,8 +22,8 @@ A full-stack content generation web application built with the MERN stack and po
 
 
 
-📸 Screenshots
-Here you can showcase images of your project UI (add them as you upload)
+# 📸 Screenshots
+![Image](https://github.com/user-attachments/assets/7d0f1783-76bb-4657-bb3b-8562c600cfdf)
 
 
 
