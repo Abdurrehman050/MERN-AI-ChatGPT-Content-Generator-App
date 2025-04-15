@@ -20,8 +20,12 @@ A full-stack content generation web application built with the MERN stack and po
 
 🛢️ MongoDB to manage users, prompts, and subscriptions
 
+
+
 📸 Screenshots
 Here you can showcase images of your project UI (add them as you upload)
+
+
 
 
 🧰 Tech Stack
