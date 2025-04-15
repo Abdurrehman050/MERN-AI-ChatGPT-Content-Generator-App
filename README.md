@@ -28,7 +28,8 @@ A full-stack content generation web application built with the MERN stack and po
 
 
 
-🧰 Tech Stack
+# 🧰 Tech Stack
+#
 MongoDB
 
 Express.js
